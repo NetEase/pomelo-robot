@@ -1,0 +1,9 @@
+{
+  "name": "pomelo-robot", 
+  "version": "0.0.1",
+  "private": false, 
+  "dependencies": {
+  	"socket.io-client": ">=0.9.6"
+  , "mysql": ">=0.9.5"
+  }
+}
