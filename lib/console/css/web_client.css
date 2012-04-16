@@ -60,7 +60,7 @@ body {
   overflow: auto;
   border: 1px solid #333;
   border-top: none;
-  background-color: #111;
+  background-color: #fff;
   color: #00ff00;
 }
 .screen .console p,
