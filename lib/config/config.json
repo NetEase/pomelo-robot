@@ -1,0 +1,11 @@
+{
+  "ab":{"c": 10,"n":10000},
+  "master":{"host": "192.168.145.60","port":8888,"webport":8000},
+  "app":{"host":"192.168.145.60","port":3050},
+  "mysql":{"host":"192.168.130.107","user":"xy","password":"dev","database":"Pomelo"},
+  "agent": [
+  	{"id":"agent1","ids":[0,10000]},
+  	{"id":"agent2","ids":[10000,20000]},
+  	{"id":"agent3","ids":[20000,30000]}
+   ]
+}
