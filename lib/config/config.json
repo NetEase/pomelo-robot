@@ -4,7 +4,7 @@
   "app":{"host":"192.168.145.60","port":3050},
   "mysql":{"host":"192.168.130.107","user":"xy","password":"dev","database":"Pomelo"},
   "agent": [
-  	{"id":"agent1","ids":[10000,10104]},
+  	{"id":"agent1","ids":[10000,10103]},
   	{"id":"agent2","ids":[10104,10204]},
   	{"id":"agent3","ids":[20000,30000]}
    ]

@@ -15,7 +15,7 @@ body {
   background-color: #222;
   display: table-cell;
   border-right: 1px solid #333;
-  width: 270px;
+  width: 200px;
 }
 #controls2 {
   overflow: auto;
