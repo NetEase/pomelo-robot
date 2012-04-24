@@ -5,11 +5,17 @@
 }
 body {
   background-color: #333;
-  overflow: hidden;
+  overflow: auto;
+  overflow-x: hidden;
+}
+td {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 12px;
 }
 #container {
   background-color: #000;
   display: table-row;
+  overflow: auto;
 }
 #controls {
   background-color: #222;
@@ -25,6 +31,7 @@ body {
   display: table-cell;
   vertical-align: top;
   position: relative;
+  overflow:auto;
 }
 #page {
 	margin: 0px auto;
@@ -60,17 +67,18 @@ body {
   background: -moz-linear-gradient(top,  #222,  #333);
   position: relative;
   overflow: hidden;
+  height:28px;
 }
-.screen .bar .nodes {
+.screen .bar .nodes .vtd {
   font-size: 12px;
 }
 .screen .console {
   padding: 10px;
-  font-size: 13px;
   overflow: auto;
   border: 1px solid #333;
   border-top: none;
   background-color: #fff;
+  font-size: 12px;
 }
 .screen .console p,
 .screen .console p .label,
@@ -174,7 +182,6 @@ body {
 }
 
 #bottom {
-  position: absolute;
   bottom: 10px;
 }
 #bottom2 {
