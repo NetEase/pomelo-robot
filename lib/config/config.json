@@ -1,5 +1,5 @@
 {
-  "master":{"host": "192.168.145.60","port":8888,"webport":8000},
-  "app":{"host":"192.168.145.60","port":3050},
-  "mysql":{"host":"192.168.130.107","user":"xy","password":"dev","database":"Pomelo"}
+  "master":{"host": "127.0.0.1","port":8888,"webport":8000},
+  "app":{"host":"127.0.0.1","port":3050},
+  "mysql":{"host":"172.31.133.110","user":"xy","password":"dev","database":"Pomelo"}
 }
