@@ -17,6 +17,28 @@ var User = function(count) {
 	this.count = count;
 };
 
+var numCPUs = require('os').cpus().length;
+
+
+//if (cluster.isMaster) {
+//// Fork workers.
+//for (var i = 0; i < numCPUs; i++) {
+//cluster.fork();
+//}
+//cluster.on('death', function(worker) {
+//  console.log('worker ' + worker.pid + ' died');
+//});
+//} else {
+//var conf = {};
+////queryHero(ids,function(error,users){
+//	//console.log(env + ' ' + agentId + ' ids ' + JSON.stringify(users));
+//	//app.data = users;
+//	conf.master = master;
+//	conf.app = app;
+//	conf.nodeId = agentId;
+//	var agent = new Agent(conf);
+//	agent.start();
+//}
 
 User.prototype.__defineGetter__('xcount',function(){return this.count;});
 

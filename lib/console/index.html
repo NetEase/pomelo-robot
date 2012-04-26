@@ -28,8 +28,7 @@
 					<span class="screen-label">配置信息</span>
 					<div class="bar-top-right">
 						<div class="screen-buttons">
-							<a class="button close" href="#"><img
-								src="/images/icons/cross.png" title="Close Screen" /></a>
+							<a class="button" href="#"></a>
 						</div>
 						<div class="screen-search">
 							<a href="#" class="result-count"></a>
@@ -45,8 +44,8 @@
 							</div>
 						</div>
 						<div style="">
-							<div class="" style="float: left" id="" style="">用户数：<input type='text' style="" class="" value='100' id="userinput" /></div>
-							<div>测试数： &nbsp;&nbsp;<input type='text' style="" class="" value='10' id="timeinput" />
+							<div class="" style="float: left" id="" style="">用户数：<input type='text' style="width:120px" value='100' id="maxuserinput" /></div>
+							<div> &nbsp;&nbsp; 频率数：<input type='text' style="width:120px" class="" value='10' id="timeinput" />
 							</div>
 						</div>
 					</div>
@@ -56,8 +55,7 @@
 							<div>
 								<input type='text' style="width: 380px;" value=''
 									id="robotinput" /> <input type="button" class="add-button"
-									style="float:none" id="ready-button" style="" value='Ready'>&nbsp;&nbsp;<input type="button" class="add-button"
-									style="float:none" id="run-button" style="" value='运行'>
+									style="float:none" id="ready-button" style="" value='整备'>&nbsp;&nbsp;<input type="button" class="add-button" id="run-button"  style="float:none" value='运行'>
 							</div>
 						</div>
 						<div style="clear: both"></div>
@@ -75,14 +73,13 @@
 				</div>
 			</div>
 
-			<div class="screen history" id="history_template2">
-
+			<div class="screen history" id="summary_div2">
 				<div class="bar">
 					<span class="screen-label">统计汇总</span>
 					<div class="bar-top-right">
 						<div class="screen-buttons">
-							<a class="button close" href="#"><input type="button" class="add-button"
-									style=""  style="" value='查看Agent'></a>
+							<input type="button" class="add-button" id='sumbtn' value='查看Agent'>&nbsp;<img style='display:none' id='table_img'
+								src="/images/icons/cross.png" title="Close Screen" />
 						</div>
 						<div class="screen-search">
 							<a href="#" class="result-count"></a>
@@ -107,15 +104,17 @@
 				</div>
 				
 			</div>
+			
+			<div id='summary_div' style='display:none'></div>
 
 			<!-- #stream_template -->
-			<div class="screen history" id="history_template2" style="height:246px">
+			<div class="screen history" id="avg_div2" style="height:246px">
 				<div class="bar">
 					<span class="screen-label">响应时间表</span>
 					<div class="bar-top-right">
-						<div class="screen-buttons">
-							<a class="button close" href="#"><input type="button" class="add-button"
-									style=""  style="" value='查看Agent'></a>
+						<div class="screen-buttons"><input type="button" class="add-button"
+									id='avgbtn'" value='查看Agent'>&nbsp;<img id='avg_img'  style='display:none'
+								src="/images/icons/cross.png" title="Close Screen" />
 						</div>
 						<div class="screen-search">
 							<a href="#" class="result-count"></a>
@@ -127,14 +126,15 @@
 				</div>
 			</div>
 
+			<div id='avg_div'  style='display:none'></div>
 
-			<div class="screen history" id="history_template2" style="height:246px">
+			<div class="screen history" id="qs_div2" style="height:246px">
 				<div class="bar">
 					<span class="screen-label">吞吐率图表</span>
 					<div class="bar-top-right">
-						<div class="screen-buttons">
-							<a class="button close" href="#"><input type="button" class="add-button"
-									style=""  style="" value='查看Agent'></a>
+						<div class="screen-buttons"><input type="button" class="add-button"
+									id='qsbtn' value='查看Agent'>&nbsp;<img id='qs_img'  style='display:none'
+								src="/images/icons/cross.png" title="Close Screen" />
 						</div>
 						<div class="screen-search">
 							<a href="#" class="result-count"></a>
@@ -145,6 +145,9 @@
 					<div id="qstime"></div>
 				</div>
 			</div>
+			
+			<div id='qs_div'  style='display:none'></div>
+			
 			<!-- #history_template -->
 			
 			<div id="bottom">
@@ -177,8 +180,56 @@
 					<div class="node"></div>
 				</div>
 			</div>
+			<!--table_template  -->
+			<div class="screen history agentsummary"  id="table_template">
+				<div class="bar">
+					<span class="screen-label">统计汇总</span>
+					<div class="bar-top-right">
+						<div class="screen-buttons">
+							<a class="button close" href="#"></a>
+						</div>
+						<div class="screen-search">
+							<a href="#" class="result-count"></a>
+						</div>
+					</div>
+				</div>
+				<div class="console" >
+					<table style="width: 100%" class='table'>
+						<thead>
+							<tr class='table'>
+							<td>请求类型</td>
+							<td>Max</td>
+							<td>Min</td>
+							<td>Avg</td>
+							<td>吞吐率</td>
+							<td>请求次数</td>
+							</tr>
+		 				</thead>
+						<tbody class='summary'>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!--table_template  -->
+			
+			<div class="screen history" id="avg_template" style="height:246px;">
+				<div class="bar">
+					<span class="screen-label">响应时间表</span>
+					<div class="bar-top-right">
+						<div class="screen-buttons">
+							<a class="button" href="#"></a>
+						</div>
+						<div class="screen-search">
+							<a href="#" class="result-count"></a>
+						</div>
+					</div>
+				</div>
+				<div class="console">
+					<div class="avgrestime"></div>
+				</div>
+			</div>
+			
 		</div>
-		
 	</div>
 </body>
 </html>
