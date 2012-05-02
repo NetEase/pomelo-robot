@@ -44,17 +44,19 @@
 							</div>
 						</div>
 						<div style="">
-							<div class="" style="float: left" id="" style="">用户数：<input type='text' style="width:120px" value='100' id="maxuserinput" /></div>
-							<div> &nbsp;&nbsp; 频率数：<input type='text' style="width:120px" class="" value='10' id="timeinput" />
+							<div class="" style="float: left" id="" style="">用户数：<input type='text' style="width:120px" value='50' id="maxuserinput" /></div>
+							<div> &nbsp;&nbsp; 频率数(初始数)：<input type='text' style="width:120px" class="" value='10' id="timeinput" />
 							</div>
 						</div>
 					</div>
 					<div class='dspan'>
-						<div style="float: left; width: 600px;">
+						<div style="float: left; width: 100%;">
 							<div  style="float: left"> &nbsp;运行&nbsp;脚&nbsp;本：</div>
-							<div>
-								<textarea style="width: 380px;" value='' id="robotinput" /></textarea> <input type="button" class="add-button"
-									style="float:none" id="ready-button" style="" value='整备'>&nbsp;&nbsp;<input type="button" class="add-button" id="run-button"  style="float:none" value='运行'>
+							<div style="width: 90%;">
+								<textarea style="width: 380px;" value='' id="robotinput" /></textarea>
+								<input type="button" class="add-button" style="float: none"
+									id="ready-button" style="" value='准备'>&nbsp;&nbsp;<input type="button" class="add-button" id="run-button"  style="float:none;display:none" value='运行'>
+								<span style="width:180px;margin:0px 0px 45px 15px;" id='hitdiv'></span>
 							</div>
 						</div>
 						<div style="clear: both"></div>
