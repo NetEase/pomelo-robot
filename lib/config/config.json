@@ -3,12 +3,14 @@
   {
   "master":{"host": "127.0.0.1","port":8888,"webport":8889},
   "app":{"host":"127.0.0.1","port":3050},
-  "mysql":{"host":"172.31.133.110","user":"xy","password":"dev","database":"Pomelo"}
+  "mysql":{"host":"172.31.133.110","user":"xy","password":"dev","database":"Pomelo"},
+  "clients":["127.0.0.1","192.168.1.104"]
   },
   "prod":
   {
   "master":{"host": "127.0.0.1","port":8888,"webport":8889},
   "app":{"host":"mon2.photo.163.org","port":3050},
-  "mysql":{"host":"app56v1.photo.163.org","user":"xy","password":"dev","database":"Pomelo"}
+  "mysql":{"host":"app56v1.photo.163.org","user":"xy","password":"dev","database":"Pomelo"},
+  "clients":["127.0.0.1","192.168.1.104"]
   }
 }
