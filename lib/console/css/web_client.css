@@ -26,6 +26,16 @@ body {
   vertical-align: top;
   position: relative;
 }
+#page {
+	margin: 0px auto;
+	padding: 30px 0px;
+	background: #fff
+}
+.dspan {
+	margin: 0px auto;
+	padding: 5px 5px;
+	background: #fff
+}
 .screen {
   margin: 10px;
 }
@@ -61,7 +71,6 @@ body {
   border: 1px solid #333;
   border-top: none;
   background-color: #fff;
-  color: #00ff00;
 }
 .screen .console p,
 .screen .console p .label,

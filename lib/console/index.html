@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="css/web_client.css" />
 <link rel="stylesheet" type="text/css" href="css/colors.css" />
 
-<script	src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/jquery.min.js"></script>
 <script src="/js/lib/socket.io.js"></script>
 <script src="/js/lib/underscore.min.js"></script>
 <script src="/js/nodeclient.js"></script>
@@ -13,36 +13,16 @@
 <script src="/js/ui/renderers.jquery.js"></script>
 <script src="/js/ui/web_client.jquery.js"></script>
 <script src="/js/ui/layout.js"></script>
-   <script language="javascript" type="text/javascript"><!--
-       function jsonToTable(json) {
-           var txt = "";
-           for (var i in json)
-               txt += "<tr><td class=label>" + i + "</td><td>" + json[i] + "</td></tr>";
-           return "<table>" + txt + "</table>";
-       };
-   --></script>
-   
-<style><!--
-            body { margin: 0px; font: 13px Arial, Helvetica, sans-serif; }
-            h1 { font-size: 2.4em; }
-            p, ol, ul { line-height: 30%; }
-            a:hover { text-decoration: none; }
-            #main { float:left; width: 740px; }
-            #sidebar { float:right; width: 260px; height: 100%; border-left: #BFC9AE solid 1px; margin-left: 10px; padding-left: 10px;}
-            #header { width: 100%; height: 100px; margin: 0px auto; color: #FFFFFF; background: #699C4D; border: 3px solid darkgreen; border-style: none none solid none;}
-            #header h1 { width: 1024; padding: 25px 0px 0px 0px; margin: 0px auto; font-weight: normal; }
-            #header p { width: 1024; padding: 15px 0px 0px 0px; margin: 0px auto; }
-            #page {margin: 0px auto; padding: 30px 0px;background:#fff }
-            .post { margin: 0px 0px 30px 0px; }
-            .post h1, .post h2 { margin: 0px; padding: 0px 0px 5px 0px; border-bottom: #BFC9AE solid 1px; color: #232F01; }
-            .entry { margin: 10px 0px 20px 0px; }
-            #footer { clear: both; width: 1024px; height: 50px; margin: 0px auto 30px auto; color: #FFFFFF; background: #699C4D; }
-            #footer p { padding: 19px 0px 0px 0px; text-align: center; line-height: normal; font-size: smaller; }
-            #footer a { color: #FFFFFF; }
-            .statsTable table { font-size: small; font-variant: small-caps; border-spacing: 10px 1px; }
-            .statsTable .label { text-align:right; }
-        --></style>
-
+<script language="javascript" type="text/javascript">
+	function jsonToTable(json) {
+		var txt = "";
+		for ( var i in json) {
+			var ele = json[i];
+ 			txt += "<tr><td class=label>" + i + "</td><td>" + ele + "</td></tr>";
+		}
+		return txt;
+	};
+</script>
 </head>
 <body>
 	<div id="container">
@@ -52,18 +32,13 @@
 		<!-- #controls -->
 		<div id="right">
 			<div id="screens">
-			<!-- #history_template -->
-			<div class="add-buttons">
-						<div class="add-button" style="display:" id="run-button1" style="">运行</div>
-						<input type='text' class="add-button" value='{"route":"area.userHandler.getOnlineUsers", "params":{"uid": 10003}}' style="width:350px;" id="codeinput" />
-						<div class="add-button" style="display:" id="runcode-button" style="">运行指令</div>
-					</div>
+				<!-- #history_template -->
 			</div>
-			<!-- #stream_template -->
+
 			<div class="screen history" id="history_template2">
-					
+
 				<div class="bar">
-					<span class="screen-label">系统信息</span>
+					<span class="screen-label">配置信息</span>
 					<div class="bar-top-right">
 						<div class="screen-buttons">
 							<a class="button close" href="#"><img
@@ -75,119 +50,220 @@
 					</div>
 				</div>
 				<div class="console">
-				     <div id="page">
-			            <div id="main"></div>
-			            <div id="sidebar">
-			                <div class="post">
-			                    <h2>统计</h2>
-			                    <div id="summaries" class="entry"></div>
-			                </div>
-			            </div>
-			        </div>
+					<div class='dspan'>
+						<div style="float: left; width: 600px;">
+							<div class="" style="float: left" id="run-button1" style="">Agent&nbsp;数量：</div>
+							<div>
+								<input type='text' style="" class="" value='1' id="agentCount" />
+							</div>
+						</div>
+						<div style="">
+							<div class="" style="float: left" id="run-button1" style="">用户数：</div>
+							<div>
+								<input type='text' style="" class="" value='' id="cod1einput" />
+								<input type='text' style="" class="" value='' id="cod1einput" />
+							</div>
+						</div>
+					</div>
+					<div class='dspan'>
+						<div style="float: left; width: 600px;">
+							<div class="" style="float: left" id="run-button1" style="">&nbsp;运行&nbsp;脚&nbsp;本：</div>
+							<div>
+								<input type='text' style="width: 380px;" value=''
+									id="cod1einput" /> <input type="button" class="add-button"
+									style="float: none" id="run-button1" style="" value='运行'>
+							</div>
+						</div>
+						<div style="clear: both"></div>
+
+					</div>
+					<div class='dspan'>
+						<div style="float: left; width: 600px;">
+							<div class="" style="float: left" id="run-button1" style="">当前连接数：</div>
+							<div>
+								<input type='text' style="width: 380px;" class="" value=''
+									id="cod1einput" />
+							</div>
+						</div>
+						<div style="clear: both"></div>
+
+					</div>
 				</div>
 			</div>
+
+			<div class="screen history" id="history_template2">
+
+				<div class="bar">
+					<span class="screen-label">统计汇总</span>
+					<div class="bar-top-right">
+						<div class="screen-buttons">
+							<a class="button close" href="#"><img
+								src="/images/icons/cross.png" title="Close Screen" /></a>
+						</div>
+						<div class="screen-search">
+							<a href="#" class="result-count"></a>
+						</div>
+					</div>
+				</div>
+				<div class="console" >
+					<table style="width: 100%">
+						<thead>
+							<tr>
+							<td>请求类型</td>
+							<td>Max</td>
+							<td>Min</td>
+							<td>Avg</td>
+							<td>吞吐率</td>
+							<td>请求次数</td>
+							</tr>
+		 				</thead>
+						<tbody id='reportSummary'>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- #stream_template -->
+			<div class="screen history" id="history_template2">
+				<div class="bar">
+					<span class="screen-label">响应时间表</span>
+					<div class="bar-top-right">
+						<div class="screen-buttons">
+							<a class="button close" href="#"><img
+								src="/images/icons/cross.png" title="Close Screen" /></a>
+						</div>
+						<div class="screen-search">
+							<a href="#" class="result-count"></a>
+						</div>
+					</div>
+				</div>
+				<div class="console">
+					<div id="avgrestime"></div>
+				</div>
+			</div>
+
+
+			<div class="screen history" id="history_template2">
+				<div class="bar">
+					<span class="screen-label">吞吐率图表</span>
+					<div class="bar-top-right">
+						<div class="screen-buttons">
+							<a class="button close" href="#"><img
+								src="/images/icons/cross.png" title="Close Screen" /></a>
+						</div>
+						<div class="screen-search">
+							<a href="#" class="result-count"></a>
+						</div>
+					</div>
+				</div>
+				<div class="console">
+					<div id="page"></div>
+				</div>
+			</div>
+
 			<!-- #history_template -->
-			
-			</div>
-
-			<div id="bottom">
-				<div id="bottom2">
-					<div id="stats">
-						<div class="stat nodes">
-							<b>0</b> agents
-						</div>
-						<div class="stat elapsed">
-							<b>0:00</b> elapsed
-						</div>
-					</div>
-					<div class="add-buttons">
-						<div class="add-button" style="display:none" id="run-button" style="">运行</div>
-						<input type='text' class="add-button" value='{"route":"area.userHandler.getOnlineUsers", "params":{"uid": 10003}}' style="width:350px;" id="codeinput" />
-						<div class="add-button" style="display:" id="runcode-button" style="">运行指令</div>
-					</div>
-				</div>
-			</div>
-			<!-- #bottom -->
 
 		</div>
 
-		<div id="templates">
-			<div class="group" id="node_template">
-				<div class="group2">
-					<div class="node"></div>
+		<div id="bottom">
+			<div id="bottom2">
+				<div id="stats">
+					<div class="stat nodes">
+						<b>0</b> agents
+					</div>
+					<div class="stat elapsed">
+						<b>0:00</b> elapsed
+					</div>
+				</div>
+				<div class="add-buttons">
+					<div class="add-button" style="display: none" id="run-button"
+						style="">运行</div>
+					<input type='text' class="add-button"
+						value='{"route":"area.userHandler.getOnlineUsers", "params":{"uid": 10003}}'
+						style="width: 350px;" id="codeinput" />
+					<div class="add-button" style="display:" id="runcode-button"
+						style="">运行指令</div>
 				</div>
 			</div>
-			<!-- #node_template -->
-			<div class="log_file" id="log_file_template">
-				<div class="status"></div>
-				<div class="label"></div>
-				<div class="screens"></div>
+		</div>
+		<!-- #bottom -->
+
+	</div>
+
+	<div id="templates">
+		<div class="group" id="node_template">
+			<div class="group2">
+				<div class="node"></div>
 			</div>
 		</div>
-		<!-- #templates -->
+		<!-- #node_template -->
+		<div class="log_file" id="log_file_template">
+			<div class="status"></div>
+			<div class="label"></div>
+			<div class="screens"></div>
+		</div>
+	</div>
+	<!-- #templates -->
 </body>
 <script id="source" language="javascript" type="text/javascript">
-        var raw_reports;
-        function update(reports) {
-            var main = document.getElementById("main"), summaries = document.getElementById("summaries");
-            //document.getElementById("timestamp").innerHTML = new Date();
-            raw_reports = reports;
-            reports.forEach(function(report) {
-                
-                var summary = document.getElementById("reportSummary" + report.uid);
-                if (!summary) {
-                    var summary = document.createElement("p");
-                    summary.setAttribute("id", "reportSummary" + report.uid);
-                    summary.setAttribute("class", "statsTable");
-                    summaries.appendChild(summary);
-                }
-                summary.innerHTML = jsonToTable(report.summary);
-                
-                for (var j in report.charts) {
-                    var chart = report.charts[j];
+	var raw_reports;
+	function update(reports) {
+		var main = document.getElementById("avgrestime");
+		raw_reports = reports;
+		reports
+				.forEach(function(report) {
 
-                    if (graphs[chart.uid]) {
-                        graphs[chart.uid].updateOptions({"file": chart.rows, labels: chart.columns});
-                    } else {
-                        var newchart = document.createElement("div");
-                        newchart.setAttribute("class", "post");
-                        newchart.innerHTML = [].concat(
-                            '<h2>', report.name, ': ', chart.name, '</h2>',
-                            '<div class="entry" style="width:100%;float:left">',
-                                '<div id="chart', chart.uid, '" style="float:left;width:660px;height:200px;"></div>',
-                                '<div id="chartlegend', chart.uid, '" style="float:left;width:80px;height:200px;"></div>',
-                            '</div>'
-                        ).join('');
-                        main.appendChild(newchart);
-                        graphs[chart.uid] = new Dygraph(
-                            document.getElementById("chart" + chart.uid),
-                            chart.rows,
-                            {
-                                labelsDiv: document.getElementById("chartlegend" + chart.uid),
-                                labelsSeparateLines: true,
-                                labels: chart.columns
-                            });
-                    }
-                }
-            });
-        }
+					var summary = document.getElementById("reportSummary");
+					summary.innerHTML = jsonToTable(report.summary);
+					for ( var j in report.charts) {
+						var chart = report.charts[j];
 
-        if(navigator.appName == "Microsoft Internet Explorer") { http = new ActiveXObject("Microsoft.XMLHTTP"); } else { http = new XMLHttpRequest(); }
+						if (graphs[chart.uid]) {
+							graphs[chart.uid].updateOptions({
+								"file" : chart.rows,
+								labels : chart.columns
+							});
+						} else {
+							var newchart = document.createElement("div");
+							newchart.setAttribute("class", "post");
+							newchart.innerHTML = []
+									.concat(
+											'<div class="entry" style="width:100%;float:left">',
+											'<div id="chart', chart.uid, '" style="float:left;width:80%;height:200px;"></div>',
+											'<div id="chartlegend', chart.uid, '" style="float:left;width:80px;height:200px;"></div>',
+											'</div>').join('');
+							main.appendChild(newchart);
+							graphs[chart.uid] = new Dygraph(document.getElementById("chart"
+									+ chart.uid), chart.rows, {
+								labelsDiv : document.getElementById("chartlegend" + chart.uid),
+								labelsSeparateLines : true,
+								labels : chart.columns
+							});
+						}
+					}
+				});
+	}
 
-        setInterval(function() {
-            http.open("GET", "/reports");
-            http.onreadystatechange=function() { 
-                if (http.readyState == 4 && http.status == 200) {
-                	  
-                	//alert(http.responseText);
-                    update(JSON.parse(http.responseText));
-                }
-            }
-            http.send(null);
-        },3000);
-        
-        graphs = {};
-        //update([{"name":"Load Data","uid":0,"summary":
-       // {"Load Data uniques uniqs":2000},"charts":{"latency":{"name":"latency","uid":22,"columns":["time","min","max","avg","median","95%","99%"],"rows":[[0.03,0,0,0,0,0,0],[0.03,5,92,27.5,26,45,75],[0.04,6,62,26,25,45,57]]}}}]);
-    </script>
+	if (navigator.appName == "Microsoft Internet Explorer") {
+		http = new ActiveXObject("Microsoft.XMLHTTP");
+	} else {
+		http = new XMLHttpRequest();
+	}
+
+	setInterval(function() {
+		http.open("GET", "http://192.168.145.60:8000/reports");
+		http.onreadystatechange = function() {
+			if (http.readyState == 4 && http.status == 200) {
+		
+				//alert(http.responseText);
+				update(JSON.parse(http.responseText));
+			}
+		}
+		http.send(null);
+	}, 30000000);
+
+	graphs = {};
+	update([{"name":"","uid":0,"summary":
+	{"Load Data uniques uniqs":2000},"charts":{"latency":{"name":"","uid":22,"columns":["time","min","max","avg","median","95%","99%"],"rows":[[0.03,0,0,0,0,0,0],[0.03,5,92,27.5,26,45,75],[0.04,6,62,26,25,45,57]]}}}]);
+</script>
 </html>
