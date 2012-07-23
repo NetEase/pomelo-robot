@@ -2,15 +2,15 @@
   "dev":
   {
   "master":{"host": "127.0.0.1","port":8888,"webport":8889},
-  "app":{"host":"127.0.0.1","port":3050},
-  "mysql":{"host":"172.31.133.110","user":"xy","password":"dev","database":"Pomelo"},
-  "clients":["127.0.0.1","192.168.1.104"]
+  "app":{"host":"192.168.145.18","port":3050},
+  "mysql":{"host":"192.168.145.18","user":"xy","password":"dev","database":"Pomelo"},
+  "clients":["127.0.0.1"]
   },
   "prod":
   {
   "master":{"host": "127.0.0.1","port":8888,"webport":8889},
   "app":{"host":"mon2.photo.163.org","port":3050},
   "mysql":{"host":"app56v1.photo.163.org","user":"xy","password":"dev","database":"Pomelo"},
-  "clients":["127.0.0.1","192.168.1.104"]
+  "clients":["127.0.0.1"]
   }
 }
