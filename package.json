@@ -1,6 +1,6 @@
 {
   "name": "pomelo-robot", 
-  "version": "0.0.13",
+  "version": "0.0.15",
   "private": false, 
   "dependencies": {
   	"socket.io-client": ">=0.9.6"
