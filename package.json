@@ -1,10 +1,12 @@
 {
   "name": "pomelo-robot", 
-  "version": "0.0.1",
+  "version": "0.0.13",
   "private": false, 
   "dependencies": {
   	"socket.io-client": ">=0.9.6"
   , "socket.io": ">=0.9.6"
   , "underscore": ">=1.0.0"
+  , "pomelo-protocol": ">=0.0.2"
+
   }
 }
