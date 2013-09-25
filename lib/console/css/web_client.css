@@ -67,10 +67,10 @@ td {
   background: -moz-linear-gradient(top,  #222,  #333);
   position: relative;
   overflow: hidden;
-  height:28px;
+  height:20px;
 }
 .screen .bar .nodes .vtd {
-  font-size: 12px;
+  font-size: 12px
 }
 .screen .console {
   padding: 10px;
@@ -80,6 +80,10 @@ td {
   background-color: #fff;
   font-size: 12px;
 }
+.heightf {
+  height:200px;
+}
+
 .screen .console p,
 .screen .console p .label,
 .screen .console p .highlight {
