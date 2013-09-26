@@ -8,6 +8,8 @@
     , "socket.io": "0.9.13"
     , "socket.io-client": "0.9.11"
     , "underscore": "1.4.4"
+    , "ws": "0.4.25"
+    , "mysql": "2.0.0-alpha8"
   }
 }
 
