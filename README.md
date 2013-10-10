@@ -50,5 +50,5 @@ robot run in client agent mode.
 + script - The developer's custom script that the agent will execute. 
 
 ###Notice
-When pomelo-robot run in distribute mode, every client should be in same directory path and master could be ssh login automatic. Otherwise developer can start up agent manually. For the custom script, refer to [the demo](https://npmjs.org/package/pomelo-robot-demo).
+When pomelo-robot run in distribute mode, every client should be in same directory path and master could be ssh login automatic. Otherwise developer can start up agent manually. For the custom script, refer to [the demo](https://github.com/NetEase/pomelo-robot-demo).
 
