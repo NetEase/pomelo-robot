@@ -1,14 +1,11 @@
 #pomelo-robot
-pomelo-robot is simple tool to benchmark the socket.io server performance.
+pomelo-robot is a simple tool to benchmark the socket.io server's performance.
 
-pomelo-robot can run in multiple mode such as single machine with many process
-,distribute test many socket.io server.
+pomelo-robot can run in multiple mode such as single machine or distributed machines with many processes.
 
-pomelo-robot execute developer custom JavaScript in a sand box and static
-monitor include max(min,avg) response time and QPS,etc. then report to web http
-server with graph display
+pomelo-robot executes developer's custom javascript in a sand box and statistical analysis monitors including avg(min/max) responsing time and QPS, etc. Then reports data to the http server with graph display.
 
-pomelo-robot also can be used in http benchmark by developer script;  
+pomelo-robot can be also used in http benchmark with developer script.
 
 
 ##Installation
@@ -18,52 +15,40 @@ npm install pomelo-robot
 
 ##Usage
 ``` javascript
-
+var envConfig = require('./app/config/env.json');
+var config = require('./app/config/' + envConfig.env + '/config');
 var Robot = require('pomelo-robot').Robot;
-//developer custom data source with data application
-var queryHero = require('./app/data/mysql').queryHero;
-//config the master and app,detail by demo 
-var config = require('./app/config/config');
-var fs = require('fs');
 
 var robot = new Robot(config);
+var mode = 'master';
 
-if (robot.server==='master') {
-    robot.run(__filename);
-} else {
-    var mysql =config[robot.env].mysql;
-    var Client = require('mysql').Client;
-    var client = new Client();
-    client.host = mysql.host;
-    client.user = mysql.user;
-    client.password = mysql.password;
-    client.database = mysql.database;
-    var args = process.argv;
-    var i = 5;
-    var limit = args[i++];
-    var offset= args[i++];
-    //developer execute script
-    var script = fs.readFileSync(process.cwd() + '/app/config/lord.js', 'utf8');
-    queryHero(client,limit,offset,function(error,users){robot.run(users,script)});
+if (process.argv.length > 2){
+  mode = process.argv[2];
 }
 
+if (mode !== 'master' && mode !== 'client') {
+  throw new Error(' mode must be master or client');
+}
+
+if (mode === 'master') {
+  robot.runMaster(__filename);
+} else {
+  var script = (process.cwd() + envConfig.script);
+  robot.runAgent(script);
+}
 ``` 
 
 ##API
 ###robot.runMaster()
-run master server and http server,then initial server status include
-clients,start up file. 
+run master server and http server, then init server status including clients with startup file. 
 ####Arguments
-+ startUpFile - The master server auto start up agent file name, default is
-  current run file;
++ startupFile - The master server auto startup agent file name, default is current running file;
 
 ###robot.runAgent()
 robot run in client agent mode.
 ####Arguments
-+ datasource - The Array data ,and the size is the concurrent users. 
-+ script - The developer custom script that agent should be execute. 
++ script - The developer's custom script that the agent will execute. 
 
 ###Notice
-when pomelo-robot run in distribute mode, every client should be in same
-directory path and master could be ssh login automatic. Otherwise developer can
-start up agent by self,for the custom script, the demo is attachment.
+When pomelo-robot run in distribute mode, every client should be in same directory path and master could be ssh login automatic. Otherwise developer can start up agent manually. For the custom script, refer to [the demo](https://npmjs.org/package/pomelo-robot-demo).
+
